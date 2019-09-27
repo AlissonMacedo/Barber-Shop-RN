@@ -7,7 +7,7 @@ import { Container, Logo, Texto } from './styles';
 export default function Header({ namePage }) {
   return (
     <Container>
-      <Logo source={logo} />
+      <Logo source={logo} resizeMode="contain" />
       <Texto>{namePage}</Texto>
     </Container>
   );

@@ -28,7 +28,7 @@ export default function SignIn({ navigation }) {
         <Form>
           <FormInput
             icon="mail-outline"
-            iconColor="#fff"
+            iconColor="rgba(255, 255, 255, 0.8)"
             keyboardType="email-address"
             autoCorrect={false}
             autoCapitalize="none"
@@ -38,7 +38,7 @@ export default function SignIn({ navigation }) {
 
           <FormInput
             icon="lock-outline"
-            iconColor="#fff"
+            iconColor="rgba(255, 255, 255, 0.8)"
             secureTextEntry
             placeholder="Sua senha secreta"
           />
@@ -55,7 +55,8 @@ export default function SignIn({ navigation }) {
             </SignLinkText>
           </SignLink>
           <SignLink>
-            <SignLinkText onPress={() => navigation.navigate('SignUp')}>
+            <SignLinkText
+              onPress={() => navigation.navigate('SelectAccountType')}>
               Criar conta gratuita
             </SignLinkText>
           </SignLink>

@@ -8,6 +8,7 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createStackNavigator } from 'react-navigation-stack';
 
 import SignIn from './pages/SignIn';
+import SelectAccountType from './pages/SelectAccountType';
 import SignUp from './pages/SignUp';
 import Recovere from './pages/Recovere';
 
@@ -24,6 +25,7 @@ const Routes = createAppContainer(
   createSwitchNavigator(
     {
       Sign: createSwitchNavigator({
+        SelectAccountType,
         SignIn,
         SignUp,
         Recovere,

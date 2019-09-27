@@ -37,7 +37,7 @@ export default function Recovere({ navigation }) {
         <Form>
           <FormInput
             icon="mail-outline"
-            iconColor="#fff"
+            iconColor="rgba(255, 255, 255, 0.8)"
             keyboardType="email-address"
             autoCorrect={false}
             autoCapitalize="none"

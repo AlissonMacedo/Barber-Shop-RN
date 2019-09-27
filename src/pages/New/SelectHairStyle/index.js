@@ -9,17 +9,34 @@ import Header from '~/components/Header';
 
 import { Container, ProvidersList, Provider, Avatar, Name } from './styles';
 
-class SelectProvider extends Component {
+class SelectHairStyle extends Component {
   state = {
     providers: [
       {
-        name: 'Profissional Alisson',
+        name: 'CABELO BAGUNÇADO + BARBA APARADA',
+        avatar:
+          'https://www.elhombre.com.br/wp-content/uploads/2017/09/barba-cabelo-33-600x797.jpg',
       },
-      { name: 'Profissional Renan' },
-      { name: 'Profissional Macedo' },
-      { name: 'Profissional Carlos' },
-      { name: 'Profissional Vina' },
-      { name: 'Profissional Lara' },
+      {
+        name: 'UNDERCUT AFRO + BARBA MÉDIA',
+        avatar:
+          'https://www.elhombre.com.br/wp-content/uploads/2017/09/baraba-cabelo-11-600x601.jpg',
+      },
+      {
+        name: 'CABELO COMPRIDO + BARBA BAIXA',
+        avatar:
+          'https://www.elhombre.com.br/wp-content/uploads/2017/09/baraba-cabelo-1-600x639.jpeg',
+      },
+      {
+        name: 'CREW CUT + BARBA BAIXA',
+        avatar:
+          'https://www.elhombre.com.br/wp-content/uploads/2017/09/03-barba-cabelo-1-600x604.jpg',
+      },
+      {
+        name: 'COQUE SAMURAI + BARBA CHEIA',
+        avatar:
+          'https://www.elhombre.com.br/wp-content/uploads/2017/09/002-600x479.jpg',
+      },
     ],
   };
 
@@ -32,7 +49,7 @@ class SelectProvider extends Component {
           keyExtractor={provider => String(provider.name)}
           renderItem={({ item: provider }) => (
             <Provider
-              onPress={() => this.props.navigation.navigate('SelectHairStyle')}>
+              onPress={() => this.props.navigation.navigate('SelectDateTime')}>
               <Avatar
                 source={{
                   uri: provider.avatar
@@ -49,16 +66,16 @@ class SelectProvider extends Component {
   }
 }
 
-SelectProvider.navigationOptions = ({ navigation }) => ({
-  title: 'Selecione um Profissional',
+SelectHairStyle.navigationOptions = ({ navigation }) => ({
+  title: 'Selecione um Estilo de Corte',
   headerLeft: () => (
     <TouchableOpacity
       onPress={() => {
-        navigation.navigate('SelectBarber');
+        navigation.navigate('SelectProvider');
       }}>
       <Icon name="chevron-left" size={30} color="#FFF" />
     </TouchableOpacity>
   ),
 });
 
-export default SelectProvider;
+export default SelectHairStyle;

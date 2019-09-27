@@ -39,6 +39,7 @@ export default function SignUp({ navigation }) {
         <Form>
           <FormInput
             icon="person-outline"
+            iconColor="#fff"
             autoCorrect={false}
             autoCapitalize="none"
             placeholder="Nome completo"
@@ -50,6 +51,7 @@ export default function SignUp({ navigation }) {
 
           <FormInput
             icon="mail-outline"
+            iconColor="#fff"
             keyboardType="email-address"
             autoCorrect={false}
             autoCapitalize="none"
@@ -63,6 +65,7 @@ export default function SignUp({ navigation }) {
 
           <FormInput
             icon="lock-outline"
+            iconColor="#fff"
             secureTextEntry
             placeholder="Sua senha secreta"
             ref={passwordRef}

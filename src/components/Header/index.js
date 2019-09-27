@@ -8,6 +8,7 @@ export default function Header({ namePage }) {
   return (
     <Container>
       <Logo source={logo} />
+      <Texto>{namePage}</Texto>
     </Container>
   );
 }

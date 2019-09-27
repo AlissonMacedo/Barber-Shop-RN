@@ -9,17 +9,15 @@ import Header from '~/components/Header';
 
 import { Container, ProvidersList, Provider, Avatar, Name } from './styles';
 
-class SelectProvider extends Component {
+class SelectBarber extends Component {
   state = {
     providers: [
-      {
-        name: 'Profissional Alisson',
-      },
-      { name: 'Profissional Renan' },
-      { name: 'Profissional Macedo' },
-      { name: 'Profissional Carlos' },
-      { name: 'Profissional Vina' },
-      { name: 'Profissional Lara' },
+      { name: 'Barbearia do Alisson' },
+      { name: 'Barbearia do Renan' },
+      { name: 'Barbearia do Macedo' },
+      { name: 'Barbearia do Carlos' },
+      { name: 'Barbearia do Vina' },
+      { name: 'Barbearia do Lara' },
     ],
   };
 
@@ -32,11 +30,11 @@ class SelectProvider extends Component {
           keyExtractor={provider => String(provider.name)}
           renderItem={({ item: provider }) => (
             <Provider
-              onPress={() => this.props.navigation.navigate('SelectHairStyle')}>
+              onPress={() => this.props.navigation.navigate('SelectProvider')}>
               <Avatar
                 source={{
                   uri: provider.avatar
-                    ? provider.avatar
+                    ? provider.avatar.url
                     : `https://api.adorable.io/avatar/50/${provider.name}.png`,
                 }}
               />
@@ -49,16 +47,16 @@ class SelectProvider extends Component {
   }
 }
 
-SelectProvider.navigationOptions = ({ navigation }) => ({
-  title: 'Selecione um Profissional',
+SelectBarber.navigationOptions = ({ navigation }) => ({
+  title: 'Selecione a Barbearia',
   headerLeft: () => (
     <TouchableOpacity
       onPress={() => {
-        navigation.navigate('SelectBarber');
+        navigation.navigate('Dashboard');
       }}>
       <Icon name="chevron-left" size={30} color="#FFF" />
     </TouchableOpacity>
   ),
 });
 
-export default SelectProvider;
+export default SelectBarber;

@@ -14,7 +14,9 @@ import Recovere from './pages/Recovere';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
 
+import SelectBarber from '~/pages/New/SelectBarber';
 import SelectProvider from '~/pages/New/SelectProvider';
+import SelectHairStyle from '~/pages/New/SelectHairStyle';
 import SelectDateTime from '~/pages/New/SelectDateTime';
 import Confirm from '~/pages/New/Confirm';
 
@@ -32,7 +34,9 @@ const Routes = createAppContainer(
           New: {
             screen: createStackNavigator(
               {
+                SelectBarber,
                 SelectProvider,
+                SelectHairStyle,
                 SelectDateTime,
                 Confirm,
               },
@@ -40,7 +44,7 @@ const Routes = createAppContainer(
                 defaultNavigationOptions: {
                   headerTransparent: false,
                   headerStyle: {
-                    backgroundColor: '#000',
+                    backgroundColor: 'rgb(37, 41, 46)',
                   },
                   headerTintColor: '#FFF',
                   headerLeftContainerStyle: {
@@ -68,7 +72,7 @@ const Routes = createAppContainer(
           tabBarOptions: {
             keyboardHidesTabBar: true,
             activeTintColor: '#FFF',
-            inactiveTintColor: 'rgba(255, 255, 255, 0.6)',
+            inactiveTintColor: 'rgba(255, 255, 255, 0.3)',
             style: {
               backgroundColor: 'rgb(37, 41, 46)',
             },

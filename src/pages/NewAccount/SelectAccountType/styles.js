@@ -16,17 +16,20 @@ export const ContainerFront = styled.View`
 
 export const CardAccount = styled.TouchableOpacity`
   flex: 1;
-  margin: 15px 30px;
+  margin: 5px 15px 30px;
   background: rgb(37, 41, 46);
-  border-radius: 5px;
+  border-radius: 2px;
+  &::before {
+    margin: 5px 15px 5px;
+  }
 `;
 
 export const ImageButton = styled.Image`
   flex: 1;
 `;
 
-export const ButtonCard = styled(Button).attrs({
-  placeholderTextColor: '#000',
-})`
+export const ButtonCard = styled(Button)`
   height: 65px;
+  background: rgb(202, 202, 202);
+  border-radius: 0px;
 `;

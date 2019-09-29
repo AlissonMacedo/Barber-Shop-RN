@@ -8,9 +8,11 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createStackNavigator } from 'react-navigation-stack';
 
 import SignIn from './pages/SignIn';
-import SelectAccountType from './pages/SelectAccountType';
-import SignUp from './pages/SignUp';
 import Recovere from './pages/Recovere';
+
+import SelectAccountType from './pages/NewAccount/SelectAccountType';
+import SignUpBarber from './pages/NewAccount/SignUpBarber';
+import SignUpClient from './pages/NewAccount/SignUpClient';
 
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
@@ -25,11 +27,28 @@ const Routes = createAppContainer(
   createSwitchNavigator(
     {
       Sign: createSwitchNavigator({
-        SelectAccountType,
         SignIn,
-        SignUp,
         Recovere,
       }),
+      CreateAccount: createStackNavigator(
+        {
+          SelectAccountType,
+          SignUpBarber,
+          SignUpClient,
+        },
+        {
+          defaultNavigationOptions: {
+            headerTransparent: false,
+            headerStyle: {
+              backgroundColor: 'rgb(37, 41, 46)',
+            },
+            headerTintColor: '#FFF',
+            headerLeftContainerStyle: {
+              marginLeft: 20,
+            },
+          },
+        },
+      ),
       App: createBottomTabNavigator(
         {
           Dashboard,

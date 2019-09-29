@@ -1,4 +1,6 @@
 import React, { useRef, useState } from 'react';
+import { TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Image } from 'react-native';
 import logo from '~/assets/logo-barber.png';
 
@@ -12,7 +14,7 @@ import {
   loading,
 } from './styles';
 
-export default function SignUp({ navigation }) {
+export default function SignUpClient({ navigation }) {
   const emailRef = useRef();
   const passwordRef = useRef();
 
@@ -87,3 +89,15 @@ export default function SignUp({ navigation }) {
     </>
   );
 }
+
+SignUpClient.navigationOptions = ({ navigation }) => ({
+  title: 'Selecione Tipo de Conta',
+  headerLeft: () => (
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate('Sign');
+      }}>
+      <Icon name="chevron-left" size={30} color="#FFF" />
+    </TouchableOpacity>
+  ),
+});

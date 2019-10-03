@@ -18,6 +18,7 @@ import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
 
 import SelectBarber from '~/pages/New/SelectBarber';
+import OverViewBarber from '~/pages/New/OverViewBarber';
 import SelectProvider from '~/pages/New/SelectProvider';
 import SelectHairStyle from '~/pages/New/SelectHairStyle';
 import SelectDateTime from '~/pages/New/SelectDateTime';
@@ -51,11 +52,11 @@ const Routes = createAppContainer(
       ),
       App: createBottomTabNavigator(
         {
-          Dashboard,
           New: {
             screen: createStackNavigator(
               {
                 SelectBarber,
+                OverViewBarber,
                 SelectProvider,
                 SelectHairStyle,
                 SelectDateTime,
@@ -63,13 +64,11 @@ const Routes = createAppContainer(
               },
               {
                 defaultNavigationOptions: {
-                  headerTransparent: false,
-                  headerStyle: {
-                    backgroundColor: 'rgb(37, 41, 46)',
-                  },
+                  headerTransparent: true,
+
                   headerTintColor: '#FFF',
                   headerLeftContainerStyle: {
-                    marginLeft: 20,
+                    marginLeft: 10,
                   },
                 },
               },
@@ -86,6 +85,7 @@ const Routes = createAppContainer(
               ),
             },
           },
+          Dashboard,
           Profile,
         },
         {
@@ -102,7 +102,7 @@ const Routes = createAppContainer(
       ),
     },
     {
-      initialRouteName: 'Sign',
+      initialRouteName: 'App',
     },
   ),
 );

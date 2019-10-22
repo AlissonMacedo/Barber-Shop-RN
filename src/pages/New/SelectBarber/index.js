@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, ImageBackground } from 'react-native';
+import { TouchableOpacity, ImageBackground, StatusBar } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 //import api from '~/services/api';
@@ -57,6 +57,7 @@ class SelectBarber extends Component {
   render() {
     return (
       <>
+        <StatusBar barStyle="light-content" />
         <ImageBackground
           source={imagemFundo}
           style={{ height: '100%' }}
@@ -65,10 +66,10 @@ class SelectBarber extends Component {
           <Container>
             <HeaderPesquisa>
               <FormInput
-                icon="person-outline"
+                icon="search"
                 autoCorrect={false}
                 autoCapitalize="none"
-                placeholder="Nome completo"
+                placeholder="Procurar.."
                 /*   value={name}
             onChangeText={setName} */
               />

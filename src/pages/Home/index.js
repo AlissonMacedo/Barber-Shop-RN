@@ -104,8 +104,8 @@ class Home extends Component {
           <StatusBar backgroundColor="#333" barStyle="dark-content" />
 
           <HeaderHome>
-            <DetalheHeader1>
-              <Form>
+            {/* <DetalheHeader1>
+               <Form>
                 <Input
                   autoCorrect={true}
                   placeholder="Procurar..."
@@ -119,7 +119,7 @@ class Home extends Component {
                   <Icon name="message" size={40} color="#fff" />
                 </SubmitButton>
               </Form>
-            </DetalheHeader1>
+            </DetalheHeader1>*/}
             <ScrollView>
               <DetalheHeader />
               <BannerHome source={BannerHeaderHome} resizeMode="cover" />

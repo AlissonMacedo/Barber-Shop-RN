@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import React, { Component } from 'react';
+import { View, Text, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import DateInput from '~/components/DateInput';
 
 import { Container, HourList, Hour, Title } from './styles';
 
-export default function SelectDateTime() {
-  const [date, setDate] = useState('019-08-29T19:00:00.000Z');
-  const hours = [
+class SelectDateTime extends Component {
+  hours = [
     {
       time: '12:30',
     },
@@ -28,22 +28,35 @@ export default function SelectDateTime() {
     },
   ];
 
-  console.log(hours);
-
-  return (
-    <>
-      <Container>
-        <HourList
-          data={hours}
-          keyExtractor={item => item.time}
-          renderItem={({ item }) => (
-            <Hour
-              onPress={() => this.props.navigation.navigate('OverViewBarber')}>
-              <Title>{item.time}</Title>
-            </Hour>
-          )}
-        />
-      </Container>
-    </>
-  );
+  render() {
+    return (
+      <>
+        <Container>
+          <HourList
+            data={this.hours}
+            keyExtractor={item => item.time}
+            renderItem={({ item }) => (
+              <Hour onPress={() => this.props.navigation.navigate('Confirm')}>
+                <Title>{item.time}</Title>
+              </Hour>
+            )}
+          />
+        </Container>
+      </>
+    );
+  }
 }
+
+SelectDateTime.navigationOptions = ({ navigation }) => ({
+  title: 'Selecione um horário',
+  headerLeft: () => (
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate('SelectHairStyle');
+      }}>
+      <Icon name="chevron-left" size={30} color="#FFF" />
+    </TouchableOpacity>
+  ),
+});
+
+export default SelectDateTime;

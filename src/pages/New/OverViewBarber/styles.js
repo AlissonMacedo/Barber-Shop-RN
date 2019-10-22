@@ -11,38 +11,35 @@ export const ImageBarber = styled.Image`
 `;
 
 export const HeaderBarber = styled.View`
-  flex: 1;
+  height: 50px;
   flex-direction: row;
   justify-content: center;
   align-content: center;
-  max-height: 50px;
-  margin: 10px 10px 0px;
-
-  align-items: center;
-  padding-bottom: 20px;
+  margin: 10px;
   border-bottom-width: 1px;
   border-color: #eee;
 `;
 
 export const TextHeaderBarber = styled.Text`
-  flex: 1;
   color: #eee;
-  font-size: 30px;
+  font-size: 25px;
+  font-weight: bold;
+  margin: 5px 0px 0px;
 `;
 
 export const AvatarBarber = styled.Image`
-  margin: 20px 10px 20px;
+  margin-left: 15px;
   width: 90px;
   height: 90px;
   border-radius: 45px;
-  margin-top: -10px;
+  margin-top: -50px;
 `;
 
 export const ProvidersList = styled.ScrollView.attrs({
   showsVerticalScrollIndicator: false,
 })`
-  margin-top: 5px;
-  padding: 0 7px;
+  margin-top: 0px;
+  padding: 0 0px;
 `;
 
 export const HeaderService = styled.View`
@@ -50,18 +47,10 @@ export const HeaderService = styled.View`
   justify-content: space-around;
   align-content: center;
   height: 65px;
-  margin: 10px 10px 10px;
+  margin: 0px 10px 10px;
 
-  padding-bottom: 20px;
   border-bottom-width: 1px;
   border-color: #eee;
-`;
-
-export const ContainerIcon = styled.View`
-  flex: 1;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
 `;
 
 export const IconWifi = styled.Image`
@@ -77,14 +66,8 @@ export const TextIcon = styled.Text`
   margin: 5px;
 `;
 
-export const DetailsBarber = styled.View`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  margin: 10px;
-`;
-
 export const TexDetailsBaber = styled.Text`
+  margin: 10px;
   color: #eee;
   font-size: 20px;
   font-weight: bold;

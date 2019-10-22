@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, ImageBackground } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 //import api from '~/services/api';
 import ImageBarberHeader from '~/assets/imagebarber.jpeg';
+import logo from '~/assets/barbershop-watermark.png';
+import imagemFundo from '~/assets/imageBarberShopTest.jpg';
+
+import HeaderSearch from '~/components/HeaderSearch';
 
 import {
   Container,
+  HeaderPesquisa,
+  FormInput,
   ProvidersList,
-  TextInforView,
-  TextInfo,
   Provider,
   Description,
   Avatar,
@@ -51,55 +55,75 @@ class SelectBarber extends Component {
   };
 
   render() {
-    console.log(this.state.providers);
     return (
-      <Container>
-        <TextInforView>
-          <TextInfo>Barber's próximos...</TextInfo>
-        </TextInforView>
-
-        <ProvidersList
-          data={this.state.providers}
-          keyExtractor={provider => String(provider.name)}
-          renderItem={({ item: provider }) => (
-            <Provider
-              onPress={() => this.props.navigation.navigate('OverViewBarber')}>
-              <Avatar
-                source={{
-                  uri: provider.avatar
-                    ? provider.avatar
-                    : `https://api.adorable.io/avatar/50/${provider.name}.png`,
-                }}
+      <>
+        <ImageBackground
+          source={imagemFundo}
+          style={{ height: '100%' }}
+          resizeMode="cover"
+          blurRadius={9}>
+          <Container>
+            <HeaderPesquisa>
+              <FormInput
+                icon="person-outline"
+                autoCorrect={false}
+                autoCapitalize="none"
+                placeholder="Nome completo"
+                /*   value={name}
+            onChangeText={setName} */
               />
-              <Description>
-                <Title>{provider.name}</Title>
+            </HeaderPesquisa>
 
-                <DescriptionTextArrow>
-                  <DescriptionText>
-                    <TextDescription>Horário: 09 às 21 horas</TextDescription>
-                  </DescriptionText>
-                  <Icon
-                    name="chevron-right"
-                    size={30}
-                    color="#333"
-                    style={{ marginTop: 15 }}
+            <ProvidersList
+              data={this.state.providers}
+              keyExtractor={provider => String(provider.name)}
+              renderItem={({ item: provider }) => (
+                <Provider
+                  onPress={() =>
+                    this.props.navigation.navigate('OverViewBarber')
+                  }>
+                  <Avatar
+                    source={{
+                      uri: provider.avatar
+                        ? provider.avatar
+                        : `https://api.adorable.io/avatar/50/${
+                            provider.name
+                          }.png`,
+                    }}
                   />
-                </DescriptionTextArrow>
-              </Description>
-            </Provider>
-          )}
-        />
-      </Container>
+                  <Description>
+                    <Title>{provider.name}</Title>
+
+                    <DescriptionTextArrow>
+                      <DescriptionText>
+                        <TextDescription>
+                          Horário: 09 às 21 horas
+                        </TextDescription>
+                      </DescriptionText>
+                      <Icon
+                        name="chevron-right"
+                        size={30}
+                        color="#333"
+                        style={{ marginTop: 15 }}
+                      />
+                    </DescriptionTextArrow>
+                  </Description>
+                </Provider>
+              )}
+            />
+          </Container>
+        </ImageBackground>
+      </>
     );
   }
 }
 
 SelectBarber.navigationOptions = ({ navigation }) => ({
-  title: '',
+  title: 'Barbers Próximos',
   headerLeft: () => (
     <TouchableOpacity
       onPress={() => {
-        navigation.navigate('Dashboard');
+        navigation.navigate('Home');
       }}>
       <Icon name="chevron-left" size={40} color="#fff" />
     </TouchableOpacity>

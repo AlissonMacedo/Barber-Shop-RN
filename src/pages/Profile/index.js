@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { ImageBackground } from 'react-native';
 //import { useSelector, useDispatch } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -7,10 +8,11 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 //import { updateProfileRequest } from '~/store/modules/user/actions';
 
 import Header from '~/components/Header';
+import imagemFundo from '~/assets/imageBarberShopTest.jpg';
 
 import {
   Container,
-  Title,
+  TextTitulo,
   Separator,
   Form,
   FormInput,
@@ -56,75 +58,81 @@ export default function Profile({ navigation }) {
   }
 
   return (
-    <Container>
-      <Header namePage={'Perfil'} />
+    <ImageBackground
+      source={imagemFundo}
+      style={{ height: '100%' }}
+      resizeMode="cover"
+      blurRadius={9}>
+      <Container>
+        <Form>
+          <TextTitulo>Dados da sua conta</TextTitulo>
 
-      <Form>
-        <FormInput
-          icon="person-outline"
-          autoCorrect={false}
-          autoCapitalize="none"
-          placeholder="Nome completo"
-          returnKeyType="next"
-          onSubmitEditing={() => emailRef.current.focus()}
-          /*   value={name}
+          <FormInput
+            icon="person-outline"
+            autoCorrect={false}
+            autoCapitalize="none"
+            placeholder="Nome completo"
+            returnKeyType="next"
+            onSubmitEditing={() => emailRef.current.focus()}
+            /*   value={name}
             onChangeText={setName} */
-        />
+          />
 
-        <FormInput
-          icon="mail-outline"
-          keyboardType="email-address"
-          autoCorrect={false}
-          autoCapitalize="none"
-          placeholder="Digite seu e-mail"
-          ref={emailRef}
-          returnKeyType="next"
-          onSubmitEditing={() => oldPassword.current.focus()}
-          /*  value={email}
+          <FormInput
+            icon="mail-outline"
+            keyboardType="email-address"
+            autoCorrect={false}
+            autoCapitalize="none"
+            placeholder="Digite seu e-mail"
+            ref={emailRef}
+            returnKeyType="next"
+            onSubmitEditing={() => oldPassword.current.focus()}
+            /*  value={email}
             onChangeText={setEmail} */
-        />
+          />
 
-        <Separator />
+          <Separator />
 
-        <FormInput
-          icon="lock-outline"
-          secureTextEntry
-          placeholder="Sua senha atual"
-          ref={oldPasswordRef}
-          returnKeyType="next"
-          onSubmitEditing={() => passwordRef.current.focus()}
-          value={oldPassword}
-          onChangeText={setOldPassword}
-        />
+          <FormInput
+            icon="lock-outline"
+            secureTextEntry
+            placeholder="Sua senha atual"
+            ref={oldPasswordRef}
+            returnKeyType="next"
+            onSubmitEditing={() => passwordRef.current.focus()}
+            value={oldPassword}
+            onChangeText={setOldPassword}
+          />
 
-        <FormInput
-          icon="lock-outline"
-          secureTextEntry
-          placeholder="Sua nova senha"
-          ref={passwordRef}
-          returnKeyType="next"
-          onSubmitEditing={() => confirmPasswordRef.current.focus()}
-          value={password}
-          onChangeText={setPassword}
-        />
+          <FormInput
+            icon="lock-outline"
+            secureTextEntry
+            placeholder="Sua nova senha"
+            ref={passwordRef}
+            returnKeyType="next"
+            onSubmitEditing={() => confirmPasswordRef.current.focus()}
+            value={password}
+            onChangeText={setPassword}
+          />
 
-        <FormInput
-          icon="lock-outline"
-          secureTextEntry
-          placeholder="Confirmação de senha"
-          ref={confirmPasswordRef}
-          returnKeyType="send"
-          onSubmitEditing={handleSubmit}
-          value={confirmPassword}
-          onChangeText={setConfirmPassword}
-        />
+          <FormInput
+            icon="lock-outline"
+            secureTextEntry
+            placeholder="Confirmação de senha"
+            ref={confirmPasswordRef}
+            returnKeyType="send"
+            onSubmitEditing={handleSubmit}
+            value={confirmPassword}
+            onChangeText={setConfirmPassword}
+          />
 
-        <SubmitButton onPress={handleSubmit}>Atualizar perfil</SubmitButton>
-        <LogoutButton onPress={() => navigation.navigate('SignIn')}>
-          Sair do GoBarber
-        </LogoutButton>
-      </Form>
-    </Container>
+          <SubmitButton onPress={handleSubmit}>Atualizar perfil</SubmitButton>
+          <LogoutButton onPress={() => navigation.navigate('SignIn')}>
+            Sair do BarberShop
+          </LogoutButton>
+        </Form>
+      </Container>
+    </ImageBackground>
   );
 }
 

@@ -5,18 +5,20 @@ import Button from '~/components/Button';
 
 export const Container = styled.View`
   flex: 1;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: rgb(202, 202, 202);
+  background: rgba(0, 0, 0, 0.5);
 `;
 
 export const Separator = styled.View`
   height: 1px;
-  background: #000;
+  background: rgba(255, 255, 255, 0.7);
   margin: 20px 0 30px;
 `;
 
-export const Title = styled.Text`
+export const TextTitulo = styled.Text`
+  padding: 30px;
   font-size: 20px;
   color: #fff;
   font-weight: bold;
@@ -24,17 +26,15 @@ export const Title = styled.Text`
   margin-top: 30px;
 `;
 
-export const Form = styled.ScrollView.attrs({
-  showsVerticalScrollIndicator: false,
-  contentContainerStyle: { padding: 30 },
-})`
+export const Form = styled.View`
   align-self: stretch;
+  padding: 30px;
 `;
 
 export const FormInput = styled(Input).attrs({
   placeholderTextColor: '#000',
 })`
-  background: rgba(96, 96, 96, 0.1);
+  background: rgba(255, 255, 255, 0.7);
   margin-bottom: 10px;
 `;
 
@@ -45,5 +45,5 @@ export const SubmitButton = styled(Button)`
 
 export const LogoutButton = styled(Button)`
   margin-top: 10px;
-  background: rgba(57, 78, 99, 0.3);
+  background: rgba(255, 255, 255, 0.4);
 `;

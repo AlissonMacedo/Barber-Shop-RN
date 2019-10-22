@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import ImageBarberHeader from '~/assets/imagebarber.jpeg';
 import AvatarBarberLogo from '~/assets/avatarBarber.png';
 import IconWifiLogo from '~/assets/iconWifi.png';
 
-import SelectBarber from '~/pages/NewAccount/SignUpBarber';
+import GaleryPhotos from '~/components/GaleryPhotos';
 
 import {
   Container,
@@ -16,21 +16,20 @@ import {
   AvatarBarber,
   ProvidersList,
   HeaderService,
-  ContainerIcon,
   IconWifi,
   DetailsBarber,
   TextIcon,
   TexDetailsBaber,
+  ContainerCardBarber,
   FooterBarber,
 } from './styles';
-import { createBottomTabNavigator } from 'react-navigation-tabs';
 
-export default function OverViewBarber() {
+export default function OverViewBarber({ navigation }) {
   return (
     <Container>
       <ImageBarber source={ImageBarberHeader} />
       <HeaderBarber>
-        <TextHeaderBarber>Nome da Barbearia</TextHeaderBarber>
+        <TextHeaderBarber>BarberShop Tony</TextHeaderBarber>
         <AvatarBarber source={AvatarBarberLogo} />
       </HeaderBarber>
       <ProvidersList>
@@ -41,23 +40,87 @@ export default function OverViewBarber() {
           <IconWifi source={IconWifiLogo} />
           <IconWifi source={IconWifiLogo} />
         </HeaderService>
-        <DetailsBarber>
-          <TexDetailsBaber>
-            Esta barbearia é muito legal, aqui tem os melhores cortes...
-          </TexDetailsBaber>
-          <ScrollView horizontal={true} style={{ flex: 1, margin: 20 }}>
-            <Text>Teste</Text>
-          </ScrollView>
-        </DetailsBarber>
+        <TexDetailsBaber>
+          Esta barbearia é muito legal, aqui tem os melhores cortes...
+        </TexDetailsBaber>
+        <Text style={{ color: '#fff', marginLeft: 5, marginBottom: 10 }}>
+          {' '}
+          Nossos Cortes...
+        </Text>
+        <ScrollView
+          showsHorizontalScrollIndicator={false}
+          horizontal={true}
+          style={{ flex: 1, marginTop: 0 }}>
+          <GaleryPhotos
+            ImagemUri={ImageBarberHeader}
+            texto={'Hunder Cut'}
+            tempo={'35 min'}
+            preco={'R$45,00'}
+          />
+          <GaleryPhotos ImagemUri={ImageBarberHeader} texto={'teste'} />
+          <GaleryPhotos ImagemUri={ImageBarberHeader} texto={'teste'} />
+          <GaleryPhotos ImagemUri={ImageBarberHeader} texto={'teste'} />
+        </ScrollView>
       </ProvidersList>
       <FooterBarber>
-        <TouchableOpacity>
-          <Icon name="fullscreen" size={40} color="#000" />
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('SelectHairStyle');
+          }}>
+          <View
+            style={{
+              flex: 1,
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              margin: 5,
+            }}>
+            <Icon name="schedule" size={30} color="#000" />
+            <Text>Agendar</Text>
+          </View>
         </TouchableOpacity>
 
-        <Icon name="apps" size={40} color="#000" />
-        <Icon name="adb" size={40} color="#000" />
-        <Icon name="cake" size={40} color="#000" />
+        <TouchableOpacity>
+          <View
+            style={{
+              flex: 1,
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              margin: 5,
+            }}>
+            <Icon name="fullscreen" size={30} color="#000" />
+            <Text>Cortes</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <View
+            style={{
+              flex: 1,
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              margin: 5,
+            }}>
+            <Icon name="fullscreen" size={30} color="#000" />
+            <Text>Chat</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <View
+            style={{
+              flex: 1,
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              margin: 5,
+            }}>
+            <Icon name="fullscreen" size={30} color="#000" />
+            <Text>Local</Text>
+          </View>
+        </TouchableOpacity>
       </FooterBarber>
     </Container>
   );

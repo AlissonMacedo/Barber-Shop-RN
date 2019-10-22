@@ -1,35 +1,35 @@
 import styled from 'styled-components/native';
 import { RectButton } from 'react-native-gesture-handler';
+import Input from '~/components/Input';
 
 export const Container = styled.SafeAreaView`
   flex: 1;
-  background: rgb(37, 41, 46);
+  background: rgba(0, 0, 0, 0.5);
 `;
 
-export const TextInforView = styled.View`
-  justify-content: center;
-  align-items: center;
-  height: 45px;
+export const HeaderPesquisa = styled.View`
+  padding: 45px 0px 0px;
+  margin: 0px 20px;
 `;
 
-export const TextInfo = styled.Text`
-  margin: 10px 17px 10px;
-  flex: 1;
-  font-size: 20px;
-  font-weight: bold;
-  color: #fff;
+export const FormInput = styled(Input).attrs({
+  placeholderTextColor: '#000',
+})`
+  background: rgba(255, 255, 255, 0.7);
+  margin-bottom: 10px;
 `;
 
 export const ProvidersList = styled.FlatList.attrs({
   showsVerticalScrollIndicator: false,
   numColumns: 1,
 })`
+  flex: 1;
   margin-top: 5px;
   padding: 0 7px;
 `;
 
 export const Provider = styled(RectButton)`
-  background: #fff;
+  background: rgba(255, 255, 255, 0.7);
   border-radius: 1px;
   padding: 0px;
   flex: 1;

@@ -3,30 +3,31 @@ import { RectButton } from 'react-native-gesture-handler';
 
 export const Container = styled.SafeAreaView`
   flex: 1;
-  background: rgb(202, 202, 202);
+  background: rgba(0, 0, 0, 0.5);
 `;
 
 export const ProvidersList = styled.FlatList.attrs({
   showsVerticalScrollIndicator: false,
   numColumns: 1,
 })`
-  margin-top: 20px;
-  padding: 0 20px;
+  margin-top: 45px;
+  padding: 0 16px;
 `;
 
 export const Provider = styled(RectButton)`
-  background: #fff;
+  background: rgba(255, 255, 255, 0.7);
   border-radius: 4px;
   padding: 20px;
   flex: 1;
+  flex-direction: row;
   align-items: center;
   margin: 0 10px 20px;
 `;
 
 export const Avatar = styled.Image`
-  width: 50px;
-  height: 50px;
-  border-radius: 25px;
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
 `;
 
 export const Name = styled.Text`

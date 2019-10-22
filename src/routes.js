@@ -14,6 +14,7 @@ import SelectAccountType from './pages/NewAccount/SelectAccountType';
 import SignUpBarber from './pages/NewAccount/SignUpBarber';
 import SignUpClient from './pages/NewAccount/SignUpClient';
 
+import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
 
@@ -52,13 +53,15 @@ const Routes = createAppContainer(
       ),
       App: createBottomTabNavigator(
         {
+          Home,
+
           New: {
             screen: createStackNavigator(
               {
                 SelectBarber,
                 OverViewBarber,
-                SelectProvider,
                 SelectHairStyle,
+                SelectProvider,
                 SelectDateTime,
                 Confirm,
               },
@@ -85,6 +88,7 @@ const Routes = createAppContainer(
               ),
             },
           },
+
           Dashboard,
           Profile,
         },

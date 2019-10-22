@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 //import api from '~/services/api';
@@ -7,7 +7,17 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import Background from '~/components/Background';
 import Header from '~/components/Header';
 
-import { Container, ProvidersList, Provider, Avatar, Name } from './styles';
+import {
+  Container,
+  ProvidersList,
+  Provider,
+  Avatar,
+  DivDadosProvider,
+  DivDetalhesProvider,
+  DivDetalhes1Provider,
+  Name,
+  Description,
+} from './styles';
 
 class SelectProvider extends Component {
   state = {
@@ -32,7 +42,7 @@ class SelectProvider extends Component {
           keyExtractor={provider => String(provider.name)}
           renderItem={({ item: provider }) => (
             <Provider
-              onPress={() => this.props.navigation.navigate('SelectHairStyle')}>
+              onPress={() => this.props.navigation.navigate('SelectDateTime')}>
               <Avatar
                 source={{
                   uri: provider.avatar
@@ -40,7 +50,27 @@ class SelectProvider extends Component {
                     : `https://api.adorable.io/avatar/50/${provider.name}.png`,
                 }}
               />
-              <Name>{provider.name}</Name>
+              <DivDadosProvider>
+                <Name>{provider.name}</Name>
+                <DivDetalhesProvider>
+                  <DivDetalhes1Provider>
+                    <Description>Nome: Alisson Renan Macedo</Description>
+                  </DivDetalhes1Provider>
+                  <DivDetalhes1Provider>
+                    <Description style={{ fontSize: 9 }}>
+                      Experiencia: 2 anos
+                    </Description>
+                    <Description style={{ fontSize: 9 }}>
+                      Apelido: Cisco
+                    </Description>
+                  </DivDetalhes1Provider>
+                  <DivDetalhes1Provider>
+                    <Description style={{ fontSize: 8 }}>
+                      Cortes: Corte 1, Corte 2, Corte 3
+                    </Description>
+                  </DivDetalhes1Provider>
+                </DivDetalhesProvider>
+              </DivDadosProvider>
             </Provider>
           )}
         />
@@ -54,7 +84,7 @@ SelectProvider.navigationOptions = ({ navigation }) => ({
   headerLeft: () => (
     <TouchableOpacity
       onPress={() => {
-        navigation.navigate('SelectBarber');
+        navigation.navigate('SelectHairStyle');
       }}>
       <Icon name="chevron-left" size={30} color="#FFF" />
     </TouchableOpacity>

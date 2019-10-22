@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, ImageBackground } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+
+import imagemFundo from '~/assets/imageBarberShopTest2.jpg';
 
 //import api from '~/services/api';
 
@@ -43,35 +45,45 @@ class SelectHairStyle extends Component {
   render() {
     console.log(this.state.providers);
     return (
-      <Container>
-        <ProvidersList
-          data={this.state.providers}
-          keyExtractor={provider => String(provider.name)}
-          renderItem={({ item: provider }) => (
-            <Provider
-              onPress={() => this.props.navigation.navigate('SelectDateTime')}>
-              <Avatar
-                source={{
-                  uri: provider.avatar
-                    ? provider.avatar
-                    : `https://api.adorable.io/avatar/50/${provider.name}.png`,
-                }}
-              />
-              <Name>{provider.name}</Name>
-            </Provider>
-          )}
-        />
-      </Container>
+      <ImageBackground
+        source={imagemFundo}
+        style={{ height: '100%' }}
+        resizeMode="cover"
+        blurRadius={9}>
+        <Container>
+          <ProvidersList
+            data={this.state.providers}
+            keyExtractor={provider => String(provider.name)}
+            renderItem={({ item: provider }) => (
+              <Provider
+                onPress={() =>
+                  this.props.navigation.navigate('SelectProvider')
+                }>
+                <Avatar
+                  source={{
+                    uri: provider.avatar
+                      ? provider.avatar
+                      : `https://api.adorable.io/avatar/50/${
+                          provider.name
+                        }.png`,
+                  }}
+                />
+                <Name>{provider.name}</Name>
+              </Provider>
+            )}
+          />
+        </Container>
+      </ImageBackground>
     );
   }
 }
 
 SelectHairStyle.navigationOptions = ({ navigation }) => ({
-  title: 'Selecione um Estilo de Corte',
+  title: 'Selecione um serviço',
   headerLeft: () => (
     <TouchableOpacity
       onPress={() => {
-        navigation.navigate('SelectProvider');
+        navigation.navigate('OverViewBarber');
       }}>
       <Icon name="chevron-left" size={30} color="#FFF" />
     </TouchableOpacity>

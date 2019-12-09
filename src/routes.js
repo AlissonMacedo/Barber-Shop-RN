@@ -20,6 +20,7 @@ import Profile from './pages/Profile';
 
 import SelectBarber from '~/pages/New/SelectBarber';
 import OverViewBarber from '~/pages/New/OverViewBarber';
+import Local from '~/pages/Local';
 import SelectProvider from '~/pages/New/SelectProvider';
 import SelectHairStyle from '~/pages/New/SelectHairStyle';
 import SelectDateTime from '~/pages/New/SelectDateTime';
@@ -60,6 +61,7 @@ const Routes = createAppContainer(
               {
                 SelectBarber,
                 OverViewBarber,
+                Local,
                 SelectHairStyle,
                 SelectProvider,
                 SelectDateTime,

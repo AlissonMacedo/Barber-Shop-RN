@@ -1,25 +1,17 @@
 import React, { Component } from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import {
-  View,
-  Text,
-  ScrollView,
-  ImageBackground,
-  StatusBar,
-} from 'react-native';
+import { View, Text, ScrollView, StatusBar } from 'react-native';
 import GaleryPhotos from '~/components/GaleryPhotos';
 import BannerHeaderHome from '~/assets/bannerHomeHeader.jpg';
 import BannerGrandeHome from '~/assets/bannergrandeHome.png';
 import BannerMediumHome from '~/assets/bannerMediumHome.png';
 
-import Header from '~/components/Header';
 import {
   Container,
   Form,
   Input,
   HeaderHome,
-  DetalheHeader1,
   DetalheHeader,
   SubmitButton,
   BannerHome,
@@ -30,6 +22,7 @@ import {
   AvatarMedium,
   Avatar,
   BannerGrande,
+  ImagemBannerGrande,
 } from './styles';
 
 import ImageTeste from '~/assets/avatarBarber.jpg';
@@ -96,41 +89,64 @@ class Home extends Component {
   render() {
     const selecionados = this.state.providers.slice(0, 4);
 
-    console.log(selecionados);
-
     return (
       <>
         <Container>
-          <StatusBar backgroundColor="#333" barStyle="dark-content" />
+          <ScrollView style={{ flex: 1 }}>
+            <DetalheHeader />
+            <View style={{}} />
 
-          <HeaderHome>
-            {/* <DetalheHeader1>
-               <Form>
-                <Input
-                  autoCorrect={true}
-                  placeholder="Procurar..."
-                  value={''}
-                  onChangeText={text => this.setState({ newTasks: text })}
-                  returnKeyType="send"
-                  onSubmitEditing={this.handleAddTask}
-                  maxLength={25}
-                />
-                <SubmitButton onPress={() => this.handleAddTask()}>
-                  <Icon name="message" size={40} color="#fff" />
-                </SubmitButton>
-              </Form>
-            </DetalheHeader1>*/}
-            <ScrollView>
-              <DetalheHeader />
+            <View style={{ alignSelf: 'stretch', margin: 15 }}>
               <BannerHome source={BannerHeaderHome} resizeMode="cover" />
+            </View>
 
-              <ScrollView
-                showsHorizontalScrollIndicator={false}
-                horizontal={true}
-                contentContainerStyle={{ flexGrow: 1 }}>
-                {selecionados.map(provider => (
-                  <AvatarMini
-                    key={provider}
+            <ScrollView
+              showsHorizontalScrollIndicator={false}
+              horizontal={true}
+              contentContainerStyle={{ flexGrow: 1 }}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  width: '100%',
+                  justifyContent: 'space-around',
+                }}>
+                <AvatarMini>
+                  <Icon name="home" size={35} color="#FFF" />
+                </AvatarMini>
+                <AvatarMini>
+                  <Icon name="attach-money" size={35} color="#FFF" />
+                </AvatarMini>
+                <AvatarMini>
+                  <Icon name="send" size={35} color="#FFF" />
+                </AvatarMini>
+                <AvatarMini>
+                  <Icon name="flag" size={35} color="#FFF" />
+                </AvatarMini>
+                <AvatarMini>
+                  <Icon name="favorite" size={35} color="#FFF" />
+                </AvatarMini>
+              </View>
+              {/* {selecionados.map(provider => (
+                <AvatarMini
+                  key={provider}
+                  source={{
+                    uri: provider.avatar
+                      ? provider.avatar
+                      : `https://api.adorable.io/avatar/50/${provider.name}.png`,
+                  }}
+                  resizeMode="stretch"
+                />
+              ))} */}
+            </ScrollView>
+
+            <ViewDeskt>
+              <TextDestak>Parceiros</TextDestak>
+
+              <CardList
+                data={selecionados}
+                keyExtractor={item => item.name}
+                renderItem={({ item: provider }) => (
+                  <Avatar
                     source={{
                       uri: provider.avatar
                         ? provider.avatar
@@ -140,57 +156,28 @@ class Home extends Component {
                     }}
                     resizeMode="cover"
                   />
-                ))}
-                {selecionados.map(provider => (
-                  <AvatarMini
-                    key={provider}
-                    source={{
-                      uri: provider.avatar
-                        ? provider.avatar
-                        : `https://api.adorable.io/avatar/50/${
-                            provider.name
-                          }.png`,
-                    }}
-                    resizeMode="stretch"
-                  />
-                ))}
-              </ScrollView>
+                )}
+              />
+            </ViewDeskt>
 
-              <ViewDeskt>
-                <TextDestak>Parceiros</TextDestak>
-
-                <CardList
-                  data={selecionados}
-                  keyExtractor={item => item.name}
-                  renderItem={({ item: provider }) => (
-                    <Avatar
-                      source={{
-                        uri: provider.avatar
-                          ? provider.avatar
-                          : `https://api.adorable.io/avatar/50/${
-                              provider.name
-                            }.png`,
-                      }}
-                      resizeMode="cover"
-                    />
-                  )}
-                />
-              </ViewDeskt>
-
-              <TextDestak>Promoção</TextDestak>
-              <ScrollView
-                style={{ paddingLeft: 10 }}
-                showsHorizontalScrollIndicator={false}
-                horizontal={true}>
-                <AvatarMedium source={BannerMediumHome} />
-                <AvatarMedium source={ImageTeste} />
-                <AvatarMedium source={ImageTeste} />
-                <AvatarMedium source={ImageTeste} />
-              </ScrollView>
-
-              <BannerGrande source={BannerGrandeHome} resizeMode="stretch" />
+            <TextDestak>Promoção</TextDestak>
+            <ScrollView
+              style={{ paddingLeft: 10 }}
+              showsHorizontalScrollIndicator={false}
+              horizontal={true}>
+              <AvatarMedium source={BannerMediumHome} />
+              <AvatarMedium source={ImageTeste} />
+              <AvatarMedium source={ImageTeste} />
+              <AvatarMedium source={ImageTeste} />
             </ScrollView>
-          </HeaderHome>
+
+            <BannerGrande>
+              <ImagemBannerGrande
+                source={BannerGrandeHome}
+                resizeMode="stretch"
+              />
+            </BannerGrande>
+          </ScrollView>
         </Container>
       </>
     );

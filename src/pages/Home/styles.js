@@ -5,14 +5,6 @@ export const Container = styled.View`
   flex: 1;
   background: #ddd;
   justify-content: center;
-  align-items: center;
-`;
-
-export const HeaderHome = styled.SafeAreaView``;
-
-export const DetalheHeader1 = styled.View`
-  height: 60px;
-  background: #333;
 `;
 
 export const Form = styled.View`
@@ -42,18 +34,17 @@ export const SubmitButton = styled(RectButton)`
   margin-left: 10px;
   padding: 0 12px;
 `;
+
 export const DetalheHeader = styled.View`
-  height: 90px;
+  height: 120px;
   background: #333;
 `;
 
 export const BannerHome = styled.Image`
-  width: 340px;
-  height: 150px;
-  margin: 20px 15px 0px 15px;
-  background: #eee;
-  border-radius: 10px;
+  width: 100%;
+  height: 130px;
   margin-top: -80px;
+  border-radius: 15px;
 `;
 
 export const TextDestak = styled.Text`
@@ -102,12 +93,16 @@ export const Avatar = styled.Image`
   border: solid 1px #ddd;
 `;
 
-export const AvatarMini = styled.Image`
+export const AvatarMini = styled.View`
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 60px;
   height: 60px;
   border-radius: 30px;
   border: solid 1px #ddd;
-  margin: 15px 5px 10px 5px;
+  background-color: #333;
+  margin: 5px 5px 10px 5px;
 `;
 
 export const AvatarMedium = styled.Image`
@@ -127,10 +122,24 @@ export const AvatarLocalidade = styled.Image`
   margin: 10px 10px 10px 5px;
 `;
 
-export const BannerGrande = styled.Image`
-  width: 340px;
+export const BannerGrande = styled.View`
   height: 200px;
+  align-self: stretch;
   margin: 15px 15px 15px 15px;
   background: #eee;
   border-radius: 10px;
+  border-width: 1;
+  border-radius: 2;
+  border-color: #ddd;
+  border-bottom-width: 1;
+  shadow-color: #000;
+  shadow-offset: {width: 0, height: 2};
+  shadow-opacity: 0.5;
+  shadow-radius: 2;
+  elevation: 1;
+`;
+
+export const ImagemBannerGrande = styled.Image`
+  width: 100%;
+  height: 200px;
 `;

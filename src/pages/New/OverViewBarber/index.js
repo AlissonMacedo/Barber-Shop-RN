@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, ScrollView, Image } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import ImageBarberHeader from '~/assets/imagebarber.jpeg';
@@ -17,14 +17,41 @@ import {
   ProvidersList,
   HeaderService,
   IconWifi,
-  DetailsBarber,
-  TextIcon,
   TexDetailsBaber,
-  ContainerCardBarber,
   FooterBarber,
 } from './styles';
 
 export default function OverViewBarber({ navigation }) {
+  const [state, setState] = useState({
+    providers: [
+      {
+        name: 'CABELO BAGUNÇADO + BARBA APARADA',
+        avatar:
+          'https://www.elhombre.com.br/wp-content/uploads/2017/09/barba-cabelo-33-600x797.jpg',
+      },
+      {
+        name: 'UNDERCUT AFRO + BARBA MÉDIA',
+        avatar:
+          'https://www.elhombre.com.br/wp-content/uploads/2017/09/baraba-cabelo-11-600x601.jpg',
+      },
+      {
+        name: 'CABELO COMPRIDO + BARBA BAIXA',
+        avatar:
+          'https://www.elhombre.com.br/wp-content/uploads/2017/09/baraba-cabelo-1-600x639.jpeg',
+      },
+      {
+        name: 'CREW CUT + BARBA BAIXA',
+        avatar:
+          'https://www.elhombre.com.br/wp-content/uploads/2017/09/03-barba-cabelo-1-600x604.jpg',
+      },
+      {
+        name: 'COQUE SAMURAI + BARBA CHEIA',
+        avatar:
+          'https://www.elhombre.com.br/wp-content/uploads/2017/09/002-600x479.jpg',
+      },
+    ],
+  });
+
   return (
     <Container>
       <ImageBarber source={ImageBarberHeader} />
@@ -51,12 +78,14 @@ export default function OverViewBarber({ navigation }) {
           showsHorizontalScrollIndicator={false}
           horizontal={true}
           style={{ flex: 1, marginTop: 0 }}>
-          <GaleryPhotos
-            ImagemUri={ImageBarberHeader}
-            texto={'Hunder Cut'}
-            tempo={'35 min'}
-            preco={'R$45,00'}
-          />
+          {state.providers.map(hair => (
+            <GaleryPhotos
+              ImagemUri={{ uri: hair.avatar }}
+              texto={hair.name}
+              tempo={'35 min'}
+              preco={'R$45,00'}
+            />
+          ))}
           <GaleryPhotos ImagemUri={ImageBarberHeader} texto={'teste'} />
           <GaleryPhotos ImagemUri={ImageBarberHeader} texto={'teste'} />
           <GaleryPhotos ImagemUri={ImageBarberHeader} texto={'teste'} />
@@ -108,7 +137,7 @@ export default function OverViewBarber({ navigation }) {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Local')}>
           <View
             style={{
               flex: 1,

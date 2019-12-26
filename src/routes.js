@@ -26,6 +26,9 @@ import SelectHairStyle from '~/pages/New/SelectHairStyle';
 import SelectDateTime from '~/pages/New/SelectDateTime';
 import Confirm from '~/pages/New/Confirm';
 
+import Favorites from '~/pages/Shortcut/Favorites';
+import Products from '~/pages/Shortcut/Products';
+
 const Routes = createAppContainer(
   createSwitchNavigator(
     {
@@ -38,6 +41,24 @@ const Routes = createAppContainer(
           SelectAccountType,
           SignUpBarber,
           SignUpClient,
+        },
+        {
+          defaultNavigationOptions: {
+            headerTransparent: false,
+            headerStyle: {
+              backgroundColor: 'rgb(37, 41, 46)',
+            },
+            headerTintColor: '#FFF',
+            headerLeftContainerStyle: {
+              marginLeft: 20,
+            },
+          },
+        },
+      ),
+      Shortcut: createStackNavigator(
+        {
+          Favorites,
+          Products,
         },
         {
           defaultNavigationOptions: {

@@ -1,7 +1,8 @@
 import styled from 'styled-components/native';
 import { RectButton } from 'react-native-gesture-handler';
+import { TouchableOpacity } from 'react-native';
 
-export const Container = styled.View`
+export const Container = styled.SafeAreaView`
   flex: 1;
   background: #ddd;
   justify-content: center;
@@ -36,7 +37,7 @@ export const SubmitButton = styled(RectButton)`
 `;
 
 export const DetalheHeader = styled.View`
-  height: 120px;
+  height: 80px;
   background: #333;
 `;
 
@@ -93,7 +94,7 @@ export const Avatar = styled.Image`
   border: solid 1px #ddd;
 `;
 
-export const AvatarMini = styled.View`
+export const AvatarMini = styled.TouchableOpacity`
   flex-direction: column;
   justify-content: center;
   align-items: center;

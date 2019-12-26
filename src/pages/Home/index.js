@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import { View, Text, ScrollView, StatusBar } from 'react-native';
+import { View, Text, ScrollView, StatusBar, SafeAreaView } from 'react-native';
 import GaleryPhotos from '~/components/GaleryPhotos';
 import BannerHeaderHome from '~/assets/bannerHomeHeader.jpg';
 import BannerGrandeHome from '~/assets/bannergrandeHome.png';
@@ -92,9 +92,9 @@ class Home extends Component {
     return (
       <>
         <Container>
+          <StatusBar backgroundColor="dark" barStyle="dark-content" />
           <ScrollView style={{ flex: 1 }}>
             <DetalheHeader />
-            <View style={{}} />
 
             <View style={{ alignSelf: 'stretch', margin: 15 }}>
               <BannerHome source={BannerHeaderHome} resizeMode="cover" />
@@ -119,10 +119,12 @@ class Home extends Component {
                 <AvatarMini>
                   <Icon name="send" size={35} color="#FFF" />
                 </AvatarMini>
-                <AvatarMini>
+                <AvatarMini
+                  onPress={() => this.props.navigation.navigate('Products')}>
                   <Icon name="flag" size={35} color="#FFF" />
                 </AvatarMini>
-                <AvatarMini>
+                <AvatarMini
+                  onPress={() => this.props.navigation.navigate('Favorites')}>
                   <Icon name="favorite" size={35} color="#FFF" />
                 </AvatarMini>
               </View>
@@ -150,9 +152,7 @@ class Home extends Component {
                     source={{
                       uri: provider.avatar
                         ? provider.avatar
-                        : `https://api.adorable.io/avatar/50/${
-                            provider.name
-                          }.png`,
+                        : `https://api.adorable.io/avatar/50/${provider.name}.png`,
                     }}
                     resizeMode="cover"
                   />
